@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement3D : MonoBehaviour
 {
+    public GameObject player;
     public float moveSpeed = 5f;
     public float gravity = -9.81f;
 
@@ -12,7 +13,7 @@ public class PlayerMovement3D : MonoBehaviour
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        controller = player.GetComponent<CharacterController>();
     }
 
     void Update()
@@ -24,7 +25,7 @@ public class PlayerMovement3D : MonoBehaviour
         float z = Input.GetAxis("Vertical");   
 
         // Move relative to the player's forward direction
-        Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 move = player.transform.right * x + player.transform.forward * z;
         controller.Move(move * moveSpeed * Time.deltaTime);
 
         // Jumping
