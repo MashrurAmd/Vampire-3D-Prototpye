@@ -8,14 +8,14 @@ public class PlayerMovement3D : MonoBehaviour
 
     private CharacterController controller;
     private Vector3 velocity;
-    private Animator animator;
+    //private Animator animator;
 
     private bool isRunning;
 
     void Start()
     {
         controller = player.GetComponent<CharacterController>();
-        animator = player.GetComponent<Animator>(); // Make sure Animator is on the player
+        //animator = player.GetComponent<Animator>(); // Make sure Animator is on the player
     }
 
     void Update()
@@ -26,7 +26,7 @@ public class PlayerMovement3D : MonoBehaviour
 
         // Determine running
         isRunning = Input.GetKey(KeyCode.W) && z > 0;
-        animator.SetBool("isRunning", isRunning);
+        //animator.SetBool("isRunning", isRunning);
 
         // Move relative to the player's forward direction
         Vector3 move = player.transform.right * x + player.transform.forward * z;
