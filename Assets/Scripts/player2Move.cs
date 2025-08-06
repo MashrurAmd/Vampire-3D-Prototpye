@@ -9,7 +9,7 @@ public class player2Move : MonoBehaviour
 
 
     [Header("Camera Settings")]
-    public Transform cameraTransform; // Main Camera
+
     public float mouseSensitivity = 100f;
 
     private Rigidbody rb;
@@ -53,7 +53,7 @@ public class player2Move : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -80f, 80f); // Prevent looking too far up/down
 
-        cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
         transform.Rotate(Vector3.up * mouseX);
     }
 
