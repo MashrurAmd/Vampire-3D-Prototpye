@@ -34,9 +34,9 @@ public class PlayerMovement3D : MonoBehaviour
         controller.Move(move * moveSpeed * Time.deltaTime);
 
         
-        if (controller.isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Apply jump velocity
+            //velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Apply jump velocity
             animator.SetTrigger("isJumping"); 
         }
 
