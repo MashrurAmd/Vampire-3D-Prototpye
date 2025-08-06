@@ -139,13 +139,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc586bae2aa96044ca9389487548c879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 2
+  sprintSpeed: 5
   jumpForce: 5
   groundCheck: {fileID: 1028458100}
   groundDistance: 0.2
   groundMask:
     serializedVersion: 2
     m_Bits: 0
+  cameraTransform: {fileID: 713786802}
+  mouseSensitivity: 100
 --- !u!54 &549457650
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -194,6 +197,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.5443611, z: 1}
   m_Center: {x: 0, y: 0.8126805, z: 0}
+--- !u!4 &549457653 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23e8240bda3c59b4d802bd612aefcdfd, type: 3}
+  m_PrefabInstance: {fileID: 2137364790}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &713786799
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,12 +287,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713786799}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2196755, y: -0, z: -0, w: 0.975573}
-  m_LocalPosition: {x: 418.85004, y: 2.1800005, z: 24.23}
+  m_LocalRotation: {x: 0.21967548, y: -0, z: -0, w: 0.975573}
+  m_LocalPosition: {x: -0.06997681, y: 2.1580005, z: -2.2722282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 549457653}
   m_LocalEulerAnglesHint: {x: 25.38, y: 0, z: 0}
 --- !u!1 &1028458097
 GameObject:
@@ -531,7 +539,10 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 5bbf37b7321ec244f9c293bbfc4f0886, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23e8240bda3c59b4d802bd612aefcdfd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 713786802}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23e8240bda3c59b4d802bd612aefcdfd, type: 3}
       insertIndex: -1
@@ -548,6 +559,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1731986996}
-  - {fileID: 713786802}
   - {fileID: 1028458100}
   - {fileID: 2137364790}

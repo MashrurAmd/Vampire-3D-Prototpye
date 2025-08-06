@@ -4,40 +4,57 @@ public class player2Move : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
+    public float sprintSpeed = 9f;      // ✅ Sprint speed
     public float jumpForce = 5f;
 
-    [Header("Ground Check")]
-    public Transform groundCheck;       // Empty GameObject at feet
-    public float groundDistance = 0.2f; // Radius for ground detection
-    public LayerMask groundMask;        // LayerMask for ground
+
+    [Header("Camera Settings")]
+    public Transform cameraTransform; // Main Camera
+    public float mouseSensitivity = 100f;
 
     private Rigidbody rb;
     private bool isGrounded;
     private Animator animator;
 
+    private float xRotation = 0f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        animator = GetComponentInChildren<Animator>(); // ✅ Animator on child model
+        animator = GetComponentInChildren<Animator>();
+
+        // Lock and hide the mouse cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
     {
-        // Ground check
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        // Walking animation
+        // Movement input
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        bool isWalking = (x != 0 || z != 0); // ✅ Moving in any direction
+
+        // Detect walking
+        bool isWalking = (x != 0 || z != 0);
         animator.SetBool("isWalking", isWalking);
 
+        // Sprinting (Shift + forward)
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift) && z > 0;
+        animator.SetBool("isRunning", isSprinting);
+
         // Jump
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            animator.SetTrigger("isJumping"); // ✅ Trigger jump animation
-        }
+
+
+        // Camera rotation with mouse
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -80f, 80f); // Prevent looking too far up/down
+
+        cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        transform.Rotate(Vector3.up * mouseX);
     }
 
     void FixedUpdate()
@@ -46,8 +63,16 @@ public class player2Move : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(x, 0, z).normalized * moveSpeed;
-        Vector3 velocity = new Vector3(move.x, rb.velocity.y, move.z);
+        // Check sprint
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift) && z > 0;
+        float currentSpeed = isSprinting ? sprintSpeed : moveSpeed;
+
+        Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 velocity = move.normalized * currentSpeed;
+        velocity.y = rb.velocity.y;
+
         rb.velocity = velocity;
     }
 }
+
+
