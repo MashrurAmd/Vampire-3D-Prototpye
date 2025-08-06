@@ -5,7 +5,11 @@ public class player2Move : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float sprintSpeed = 9f;      // ✅ Sprint speed
+
+
+    [Header("Jump Settings")]
     public float jumpForce = 5f;
+    
 
 
     [Header("Camera Settings")]
@@ -44,6 +48,12 @@ public class player2Move : MonoBehaviour
         animator.SetBool("isRunning", isSprinting);
 
         // Jump
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            
+            animator.SetTrigger("isJumping");
+        }
 
 
         // Camera rotation with mouse
