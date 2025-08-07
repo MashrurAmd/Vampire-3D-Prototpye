@@ -25,34 +25,8 @@ public class EnemyChase : MonoBehaviour
     {
 
         ChasePlayer();
-        /*if (player == null) return;
 
-        // Calculate distance to player
-        float distance = Vector3.Distance(transform.position, player.position);
-
-        // Only move if the player is within detection range
-        if (distance <= detectionRange)
-        {
-
-
-
-            // Move towards player in in y+1 direction 
-            Vector3 direction = (player.position - transform.position).normalized;
-            direction.y = 0; // Keep movement on the horizontal plane
-            transform.position += direction * moveSpeed * Time.deltaTime;
-
-
-
-  
-            direction.y = 0; // Keep rotation on the horizontal plane
-            if (direction != Vector3.zero)
-            {
-                Quaternion lookRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
-            }
-        }*/
     }
-
 
     //create a method to detect if the player is within close or far detection range and perform diffrent bools in animator also rottion towards player in one single function using if else
     private void ChasePlayer()
