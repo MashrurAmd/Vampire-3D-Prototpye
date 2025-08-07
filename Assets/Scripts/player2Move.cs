@@ -55,6 +55,11 @@ public class player2Move : MonoBehaviour
             animator.SetTrigger("isJumping");
         }
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            animator.SetTrigger("isClapping");
+        }
+
 
         // Camera rotation with mouse
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
