@@ -25,26 +25,7 @@ public class EnemyChase : MonoBehaviour
     {
         ChasePlayer();
 
-        // Diagonal movement check
-        bool isWPressed = Input.GetKey(KeyCode.W);
-        bool isDPressed = Input.GetKey(KeyCode.D);
-        bool isAPressed = Input.GetKey(KeyCode.A);
 
-        if (isWPressed && isDPressed)
-        {
-            animator.SetBool("forwardRight", true);
-            animator.SetBool("forwardLeft", false);
-        }
-        else if (isWPressed && isAPressed)
-        {
-            animator.SetBool("forwardLeft", true);
-            animator.SetBool("forwardRight", false);
-        }
-        else
-        {
-            animator.SetBool("forwardRight", false);
-            animator.SetBool("forwardLeft", false);
-        }
     }
 
     //create a method to detect if the player is within close or far detection range and perform diffrent bools in animator also rottion towards player in one single function using if else
