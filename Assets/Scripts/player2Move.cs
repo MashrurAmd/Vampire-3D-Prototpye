@@ -62,6 +62,17 @@ public class player2Move : MonoBehaviour
         bool forwardRight = pressingW && pressingD;
         bool forwardLeft = pressingW && pressingA;
 
+
+        // ✅ Backward-Right and Backward-Left detection
+
+        bool backwardRight = pressingS && pressingD;
+        bool backwardLeft = pressingS && pressingA;
+
+        //Set animator for backwardRight and backwardLeft
+        animator.SetBool("backwardRight", backwardRight);
+        animator.SetBool("backwardLeft", backwardLeft);
+
+        // Set animator for forwardRight and forwardLeft
         animator.SetBool("forwardRight", forwardRight);
         animator.SetBool("forwardLeft", forwardLeft);
 
@@ -71,6 +82,9 @@ public class player2Move : MonoBehaviour
 
         animator.SetBool("runningForwardRight", runningForwardRight);
         animator.SetBool("runningForwardLeft", runningForwardLeft);
+
+
+
 
         if (runningForwardRight || runningForwardLeft)
         {
