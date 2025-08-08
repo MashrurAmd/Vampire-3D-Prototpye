@@ -32,6 +32,11 @@ public class player2Move : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
+        bool pressingW = Input.GetKey(KeyCode.W);
+        bool pressingA = Input.GetKey(KeyCode.A);
+        bool pressingS = Input.GetKey(KeyCode.S);
+        bool pressingD = Input.GetKey(KeyCode.D);
+
         // Walking
         bool isWalking = (x != 0 || z != 0);
         animator.SetBool("isWalking", isWalking);
@@ -54,8 +59,8 @@ public class player2Move : MonoBehaviour
         }
 
         // ✅ Forward-Right and Forward-Left detection
-        bool forwardRight = Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D);
-        bool forwardLeft = Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A);
+        bool forwardRight = pressingW && pressingD;
+        bool forwardLeft = pressingW && pressingA;
 
         animator.SetBool("forwardRight", forwardRight);
         animator.SetBool("forwardLeft", forwardLeft);
@@ -67,12 +72,22 @@ public class player2Move : MonoBehaviour
         animator.SetBool("runningForwardRight", runningForwardRight);
         animator.SetBool("runningForwardLeft", runningForwardLeft);
 
-        // Reset walking diagonals if running diagonals are active
         if (runningForwardRight || runningForwardLeft)
         {
             animator.SetBool("forwardRight", false);
             animator.SetBool("forwardLeft", false);
         }
+
+        // ✅ Single-direction walking
+        bool walkRight = pressingD && !pressingW && !pressingS && !pressingA;
+        bool walkLeft = pressingA && !pressingW && !pressingS && !pressingD;
+        bool walkForward = pressingW && !pressingA && !pressingD && !pressingS;
+        bool walkBackward = pressingS && !pressingA && !pressingD && !pressingW;
+
+        animator.SetBool("walkRight", walkRight);
+        animator.SetBool("walkLeft", walkLeft);
+        animator.SetBool("walkForward", walkForward);
+        animator.SetBool("walkBackward", walkBackward);
 
         // Mouse camera rotation
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -83,6 +98,7 @@ public class player2Move : MonoBehaviour
 
         transform.Rotate(Vector3.up * mouseX);
     }
+
 
 
     void FixedUpdate()
