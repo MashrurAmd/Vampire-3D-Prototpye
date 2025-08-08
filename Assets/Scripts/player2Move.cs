@@ -60,8 +60,15 @@ public class player2Move : MonoBehaviour
         animator.SetBool("forwardRight", forwardRight);
         animator.SetBool("forwardLeft", forwardLeft);
 
-        // Reset if neither
-        if (!forwardRight && !forwardLeft)
+        // ✅ Running Forward-Right & Forward-Left (only if sprinting)
+        bool runningForwardRight = isSprinting && forwardRight;
+        bool runningForwardLeft = isSprinting && forwardLeft;
+
+        animator.SetBool("runningForwardRight", runningForwardRight);
+        animator.SetBool("runningForwardLeft", runningForwardLeft);
+
+        // Reset walking diagonals if running diagonals are active
+        if (runningForwardRight || runningForwardLeft)
         {
             animator.SetBool("forwardRight", false);
             animator.SetBool("forwardLeft", false);
@@ -76,6 +83,7 @@ public class player2Move : MonoBehaviour
 
         transform.Rotate(Vector3.up * mouseX);
     }
+
 
     void FixedUpdate()
     {
