@@ -40,8 +40,10 @@ public class EnemyChase : MonoBehaviour
             // Perform close detection logic (e.g., set animator bools)
             Debug.Log("Player is within close detection range.");
             // Set animator bools for close detection here
-            animator.SetBool("isWalking", true);
-            animator.SetBool("isRunning", false);
+
+
+            animator.SetBool("isRunning", true);
+            animator.SetBool("isWalking", false);
 
         }
         else if (distance <= farDetectionRange)
@@ -49,8 +51,8 @@ public class EnemyChase : MonoBehaviour
             // Perform far detection logic (e.g., set animator bools)
             Debug.Log("Player is within far detection range.");
             // Set animator bools for far detection here
-            animator.SetBool("isRunning", true);
-            animator.SetBool("isWalking", false);
+            animator.SetBool("isWalking", true);
+            animator.SetBool("isRunning", false);
         }
         else
         {
