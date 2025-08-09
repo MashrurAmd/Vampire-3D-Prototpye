@@ -189,8 +189,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.5443611, z: 1}
-  m_Center: {x: 0, y: 0.8126805, z: 0}
+  m_Size: {x: 0.4833374, y: 1.5443611, z: 0.49502754}
+  m_Center: {x: 0.03390503, y: 0.8126805, z: -0.008048058}
 --- !u!4 &549457653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23e8240bda3c59b4d802bd612aefcdfd, type: 3}
@@ -534,8 +534,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 5
-  CLoseDetectionRange: 10
+  closeDetectionRange: 10
   farDetectionRange: 20
+  attackRange: 1
   animator: {fileID: 1203792004}
 --- !u!54 &1203792007
 Rigidbody:
@@ -870,7 +871,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: e88b81dbbde6e97419fd1f6bdc41d4ca, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 5bbf37b7321ec244f9c293bbfc4f0886, type: 2}
+      objectReference: {fileID: 9100000, guid: f65c5ff3afd66af46a373e9f487b54d9, type: 2}
     - target: {fileID: 6955178182850740640, guid: e88b81dbbde6e97419fd1f6bdc41d4ca, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

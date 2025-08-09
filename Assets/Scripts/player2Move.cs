@@ -100,7 +100,7 @@ public class player2Move : MonoBehaviour
 
         animator.SetBool("walkRight", walkRight);
         animator.SetBool("walkLeft", walkLeft);
-        animator.SetBool("walkForward", walkForward);
+        //animator.SetBool("walkForward", walkForward);
         animator.SetBool("walkBackward", walkBackward);
 
         // Mouse camera rotation
