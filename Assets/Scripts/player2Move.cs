@@ -45,12 +45,6 @@ public class player2Move : MonoBehaviour
         bool isSprinting = Input.GetKey(KeyCode.LeftShift) && z > 0;
         animator.SetBool("isRunning", isSprinting);
 
-        // Jumping
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            animator.SetTrigger("isJumping");
-        }
 
         // Clapping animation
         if (Input.GetKeyDown(KeyCode.E))
