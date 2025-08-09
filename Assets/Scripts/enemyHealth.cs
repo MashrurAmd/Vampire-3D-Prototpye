@@ -1,15 +1,26 @@
 using UnityEngine;
+using TMPro;
 
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
     private Animator animator;
+    public TextMeshProUGUI healthText; // Optional: UI text to display health
 
     void Start()
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        // Update health UI if assigned
+        if (healthText != null)
+        {
+            healthText.text = $"Health: {currentHealth}/{maxHealth}";
+        }
     }
 
     public void TakeDamage(int amount)

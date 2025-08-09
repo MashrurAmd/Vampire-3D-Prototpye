@@ -76,6 +76,8 @@ public class EnemyChase : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
             }
         }
+
+
     }
 }
 
