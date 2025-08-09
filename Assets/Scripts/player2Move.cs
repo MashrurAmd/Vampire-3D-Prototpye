@@ -62,6 +62,7 @@ public class player2Move : MonoBehaviour
         }
 
 
+
         // ✅ Forward-Right and Forward-Left detection
         bool forwardRight = pressingW && pressingD;
         bool forwardLeft = pressingW && pressingA;

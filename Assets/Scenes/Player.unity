@@ -517,6 +517,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9439392, y: 1.7524072, z: 0.23845291}
   m_Center: {x: 0.028030396, y: 0.8591333, z: 0.049329758}
+--- !u!114 &1203792010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203792003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc1bd0c4455e164cbbcf704d66ef3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &1640898392
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,11 +790,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e88b81dbbde6e97419fd1f6bdc41d4ca, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e88b81dbbde6e97419fd1f6bdc41d4ca, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 1124696254034530909, guid: e88b81dbbde6e97419fd1f6bdc41d4ca, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -824,7 +837,28 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e88b81dbbde6e97419fd1f6bdc41d4ca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1203792006}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e88b81dbbde6e97419fd1f6bdc41d4ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1203792010}
   m_SourcePrefab: {fileID: 100100000, guid: e88b81dbbde6e97419fd1f6bdc41d4ca, type: 3}
+--- !u!1 &2022345590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 787551055320916098, guid: daa49651096ede54b8579fa282f04754, type: 3}
+  m_PrefabInstance: {fileID: 51092555411813139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2022345595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022345590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ac0e9474b25f1644ae1851f2b015479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1001 &51092555411813139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -892,7 +926,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 787551055320916098, guid: daa49651096ede54b8579fa282f04754, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2022345595}
   m_SourcePrefab: {fileID: 100100000, guid: daa49651096ede54b8579fa282f04754, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
