@@ -15,7 +15,7 @@ public class player2Move : MonoBehaviour
     private Rigidbody rb;
     private Animator animator;
 
-    public EnemyHealth enemyHealth;
+
 
     private float xRotation = 0f;
 
@@ -30,15 +30,8 @@ public class player2Move : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        //search for EnemyHealth component in the scene
-        if (enemyHealth == null)
-        {
-            enemyHealth = FindObjectOfType<EnemyHealth>();
-            if (enemyHealth == null)
-            {
-                Debug.LogError("EnemyHealth component not found in the scene.");
-            }
-        }
+
+
 
     }
 
@@ -121,7 +114,7 @@ public class player2Move : MonoBehaviour
 
         animator.SetBool("walkRight", walkRight);
         animator.SetBool("walkLeft", walkLeft);
-        //animator.SetBool("walkForward", walkForward);
+
         animator.SetBool("walkBackward", walkBackward);
 
         // Mouse camera rotation
@@ -151,26 +144,7 @@ public class player2Move : MonoBehaviour
         rb.velocity = velocity;
     }
 
-    public void takeDamage()
-    {
-        if (AttackRange >= Vector3.Distance(transform.position, enemy.transform.position))
-        {
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(10); // Adjust damage amount as needed
-                Debug.Log("Enemy hit!");
 
-            }
-            else
-            {
-                Debug.LogError("EnemyHealth component is not assigned or found.");
-            }
-        }
-        else
-        {
-            Debug.Log("Enemy is out of range for attack.");
-        }
-    }
 }
 
 
