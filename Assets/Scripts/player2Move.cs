@@ -52,6 +52,16 @@ public class player2Move : MonoBehaviour
             animator.SetTrigger("isClapping");
         }
 
+        //if mouse left click, play attack animation
+        if (Input.GetMouseButtonDown(0))
+        {
+            
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isRunning", false);
+            animator.SetTrigger("isAttack");
+        }
+
+
         // ✅ Forward-Right and Forward-Left detection
         bool forwardRight = pressingW && pressingD;
         bool forwardLeft = pressingW && pressingA;
