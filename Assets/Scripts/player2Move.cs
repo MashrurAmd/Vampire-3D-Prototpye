@@ -15,6 +15,8 @@ public class player2Move : MonoBehaviour
     private Rigidbody rb;
     private Animator animator;
 
+    public SwordDamageControl swordDamage; // drag your sword object here in inspector
+
 
 
     private float xRotation = 0f;
@@ -30,10 +32,21 @@ public class player2Move : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-
-
-
     }
+
+    // Inside player2Move.cs
+    
+
+    public void EnableSwordDamage()
+    {
+        swordDamage.EnableDamage();
+    }
+
+    public void DisableSwordDamage()
+    {
+        swordDamage.DisableDamage();
+    }
+
 
     void Update()
     {

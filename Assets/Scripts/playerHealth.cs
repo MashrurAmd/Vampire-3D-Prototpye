@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
         Debug.Log("Player Health: " + currentHealth);
 
-        if (currentHealth <= 0)
+        if (currentHealth < 0)
         {
             Die();
         }
@@ -30,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player Died!");
+        
         // Add game over logic here
     }
 }
