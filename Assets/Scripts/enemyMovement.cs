@@ -34,10 +34,14 @@ public class EnemyChase : MonoBehaviour
         if (distance <= attackRange)
         {
             // Attack mode
-            Debug.Log("Attacking player!");
-            animator.SetBool("isAttack", true);
             animator.SetBool("isRunning", false);
             animator.SetBool("isWalking", false);
+            Debug.Log("Attacking player!");
+            animator.SetBool("isAttack", true);
+            player.GetComponent<PlayerHealth>()?.TakeDamage(10);
+            
+
+
         }
         else if (distance <= closeDetectionRange)
         {
