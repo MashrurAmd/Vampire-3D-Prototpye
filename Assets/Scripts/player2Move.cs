@@ -16,6 +16,7 @@ public class player2Move : MonoBehaviour
     private Animator animator;
 
     public SwordDamageControl swordDamage; // drag your sword object here in inspector
+    public EnemyHealth enemyHealth; // drag your enemy health script here in inspector
 
 
 
@@ -40,6 +41,7 @@ public class player2Move : MonoBehaviour
     public void EnableSwordDamage()
     {
         swordDamage.EnableDamage();
+        enemyHealth.TakeDamage(5); 
     }
 
     public void DisableSwordDamage()
